@@ -1,0 +1,203 @@
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/assets/HeroBackgroundImage.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    /* Ensure no scrollbars if image is huge */
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: -31px;
+    width: 100%;
+    max-width: 938px;
+    /* Maintain total width approx */
+    margin: 0 auto;
+}
+
+/* Section 2: Hero Left Side - Text */
+.hero-text-container {
+    width: 450px;
+    /* Increased from ~382px to fit text */
+    height: 450px;
+    /* Match height */
+    padding-left: 42px;
+    padding-right: 53px;
+    border-radius: 24px;
+
+    /* GLASS EFFECT */
+    background: linear-gradient(90.27deg, rgba(7, 38, 49, 0.85) 0%, rgba(7, 38, 49, 0.5) 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 1;
+}
+
+.hero-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    /* Increase slightly? Or keep dense? Let's try 38px for better fit */
+    color: #FFFFFF;
+    width: 100%;
+    max-width: 400px;
+    /* Allow full width of new container */
+    line-height: 1.1;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+/* Section 3: Hero Right Side - Form Card */
+.hero-form-container {
+    width: 460px;
+    /* Decreased from ~499px */
+    height: 450px;
+    padding: 24px 18px 24px;
+
+    /* Solid Dark Teal Background */
+    background-color: #072631;
+
+    border-top-left-radius: 26px;
+    border-bottom-left-radius: 26px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 2;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
+    margin-left: -31px;
+}
+
+.form-fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* 15 * 0.8 */
+}
+
+.form-group {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-label {
+    align-self: flex-start;
+    padding-left: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 9px;
+    color: #fff;
+    width: 100%;
+    max-width: 424px;
+    /* Consistent max width */
+}
+
+.hero-form-container .input-field {
+    border-radius: 40px !important;
+    padding: 0 19px;
+    border: none;
+    height: 43px;
+    font-size: 13px;
+    width: 100% !important;
+    /* Use container constraint */
+    max-width: 424px !important;
+    /* Match button width constraint */
+}
+
+.disclaimer {
+    font-size: 0.6rem;
+    opacity: 0.7;
+    margin: 10px auto;
+    /* Reduce margin */
+    text-align: center;
+    line-height: 1.4;
+    color: #ddd;
+    width: 100%;
+    max-width: 424px;
+}
+
+.hero-cta-button {
+    background-color: var(--color-primary-red) !important;
+    color: #fff !important;
+    width: 100% !important;
+    /* Fit within constraints */
+    max-width: 424px !important;
+    /* 460 (container) - 36 (18px side padding * 2) = 424. */
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    border-radius: 40px !important;
+    height: 56px !important;
+    margin: 0 auto 0;
+    /* Removing bottom margin per user request to fit badges */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.security-badges {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.badge-img {
+    height: 30px;
+    width: auto;
+}
+
+@media (max-width: 1150px) {
+    .hero-container {
+        flex-direction: column;
+        gap: 20px;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .hero-form-container {
+        margin-left: 0;
+        width: 90%;
+        max-width: 624px;
+    }
+
+    .hero-text-container {
+        width: 90%;
+        height: auto;
+        padding: 40px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-heading {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-form-container .input-field,
+    .hero-cta-button,
+    .disclaimer {
+        width: 100% !important;
+    }
+}

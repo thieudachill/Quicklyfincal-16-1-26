@@ -1,0 +1,118 @@
+/* Scaled down by 20% */
+.header {
+    position: fixed;
+    top: 19px;
+    /* 24 * 0.8 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    /* 1334 * 0.8 */
+    height: 70px;
+    /* 83 * 0.8 */
+    z-index: 1000;
+    padding: 0 26px;
+    /* 32 * 0.8 */
+
+    transition: all 0.3s ease;
+
+    /* Liquid Glass Dock Effect per Figma */
+    background: rgba(255, 255, 255, 0.69);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1000px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Push logo and menu apart */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    /* Ensure full spread */
+    align-items: center;
+    width: 100%;
+    /* Removed gap: 304px to allow space-between to handle precise distribution */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    /* Up from 1.2 */
+    font-weight: 800;
+    color: #072631;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+}
+
+.logo-image {
+    height: 45px;
+    /* Up from 26 */
+    width: auto;
+    margin-right: 12px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 74px;
+    /* 92 * 0.8 (approx) */
+    align-items: center;
+}
+
+.nav-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    /* Inter Regular */
+    font-size: 16px;
+    /* 20 * 0.8 */
+    color: #072631;
+    transition: color 0.2s ease;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--color-primary-red);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-primary-red);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 1400px) {
+    .header {
+        width: 95%;
+        height: auto;
+        min-height: 83px;
+        padding: 10px 20px;
+        border-radius: 50px;
+    }
+
+    .header-content {
+        gap: 40px;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+    }
+}

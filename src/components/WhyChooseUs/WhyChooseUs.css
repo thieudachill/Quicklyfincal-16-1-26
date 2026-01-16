@@ -1,0 +1,171 @@
+.why-choose-us-section {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: 502px;
+    /* Fixed height per QC specs */
+    margin: 0 auto;
+    background-color: transparent;
+    color: #fff;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    /* Figma drop shadow */
+}
+
+.why-choose-us-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/moneybackground.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    z-index: -2;
+    transform: scale(1.05);
+    /* Prevent blur edges */
+}
+
+.why-choose-us-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* QC Color Update: Make it semi-transparent for glass effect */
+    background-color: rgba(8, 39, 50, 0.85);
+    z-index: -1;
+}
+
+.why-choose-us-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Ensure flex alignment is center */
+    gap: 0;
+    /* Removing generic gap to control individually */
+}
+
+/* Title is handled by global or component specific class, but we need to ensure gap to subtitle is 22px */
+/* Explicitly target the section-title class to override any defaults */
+.why-choose-us-section .section-title {
+    margin: 0 auto 22px !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 56px;
+    /* Approx for 67px height */
+    line-height: 1.2;
+    color: #fff !important;
+    width: 100%;
+}
+
+.subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 0;
+    /* Reset margins */
+    opacity: 0.9;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Cards Container per Section 5 (Frame 790 within 792) */
+.features-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 18px;
+    /* Gap between feature cards per Figma */
+    width: 1144px;
+    /* QC Fixed width */
+    margin-top: 50px;
+    /* Adjust spacing from subtitle to cards to fit design visually, or specific if known. Using generic 'top margin' for now to separate from subtitle. */
+}
+
+.feature-card {
+    /* flex: 1; - replace with specific width */
+    width: 358px;
+    /* QC Fixed Width */
+    flex-shrink: 0;
+    background: var(--color-white);
+    color: var(--color-text-dark);
+    border-radius: 12px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    min-height: 220px;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #082d30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon-hover-pulse {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Springy */
+}
+
+.icon-hover-pulse:hover {
+    transform: scale(1.1);
+}
+
+.feature-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--color-dark-teal);
+}
+
+.feature-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+@media (max-width: 950px) {
+    .why-choose-us-section {
+        height: auto;
+        padding: 80px 0;
+    }
+
+    .features-grid {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .feature-card {
+        max-width: 350px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,144 @@
+.footer {
+    background-color: #f5f5f5;
+    padding: 80px 0 40px;
+    color: #555;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 1920px;
+    min-height: 586px;
+    /* Spec Height */
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    /* Align with other content */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    /* Default stack, usually top disclaimer then bottom info */
+    gap: 15px;
+}
+
+/* Row 1: Disclaimer Text */
+.disclaimer-text {
+    width: 100%;
+    max-width: 1142px;
+    /* QC Spec */
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #777;
+    text-align: justify;
+    /* Or left */
+    margin: 0 auto;
+}
+
+/* Row 2: Brand + Socials + Contact */
+.footer-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Top align logo with social icons */
+    width: 100%;
+}
+
+.footer-logo-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Default alignment is left/flex-start */
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-dark-teal);
+    gap: 10px;
+}
+
+.footer-right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Align all right content to the right */
+    gap: 20px;
+}
+
+.social-icons-container {
+    display: flex;
+    gap: 16px;
+    margin-top: 0;
+}
+
+.contact-info {
+    text-align: right;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.contact-info p {
+    margin-bottom: 4px;
+    /* Tighter spacing */
+    line-height: 1.5;
+}
+
+/* Row 3: Links */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Centered links */
+    gap: 80px;
+    /* Wider gap for columns */
+}
+
+.link-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.link-column a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.95rem;
+}
+
+.link-column a:hover {
+    color: var(--color-primary-red);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-brand {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+}

@@ -1,0 +1,113 @@
+/* 
+  Phase 4: Motion Design System 
+  Constraint: NO LAYOUT SHIFTS. Use only transform and opacity.
+*/
+
+/* 1. Fade Up Entrance (Opacity + TranslateY) */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeUp var(--duration-medium) var(--ease-premium) forwards;
+    opacity: 0;
+    /* Ensure initial hidden state */
+    will-change: transform, opacity;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+/* 2. Scale In Entrance (Opacity + Scale) */
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-scale-in {
+    animation: scaleIn var(--duration-medium) var(--ease-premium) forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+/* 3. Hover Lift (Micro-interaction) */
+/* Strictly visual - does not affect document flow */
+.hover-lift {
+    transition: transform var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-fast) var(--ease-out-expo);
+    will-change: transform;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    /* Shadow enhancement should be handled by component specific CSS if needed, 
+       but generic lift is here */
+}
+
+/* 4. Pulse (For icons/attention) */
+@keyframes pulseScale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-pulse-subtle {
+    animation: pulseScale 2s infinite ease-in-out;
+}
+
+/* 5. Stagger Delays (Utility classes) */
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-400 {
+    animation-delay: 400ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+/* 6. Accessibility Preference */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

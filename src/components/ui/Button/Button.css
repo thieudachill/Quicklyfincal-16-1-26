@@ -1,0 +1,30 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    /* Pill shape */
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-red);
+    color: var(--color-white);
+    padding: 12px 32px;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-red-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(216, 30, 40, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}

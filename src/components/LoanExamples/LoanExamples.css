@@ -1,0 +1,81 @@
+.loan-examples-section {
+    padding: 80px 0;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loan-examples-section h2.section-title {
+    color: var(--color-primary-red);
+    /* Red title */
+    margin-bottom: 48px;
+    /* QC Gap Title to Table */
+    font-size: 2.5rem;
+    /* Estimate for visibility */
+    text-align: center;
+    width: 100%;
+}
+
+.table-container {
+    width: 1199px;
+    /* QC Fixed Width */
+    /* Table total height is ~634px from content, let it flow */
+    overflow: hidden;
+    /* Rounded corners clip */
+    border-radius: 20px;
+    /* QC Visual match */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #777;
+    /* Thin border match */
+    margin: 0 auto;
+}
+
+.loan-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.loan-table th {
+    background-color: #082732;
+    height: 50px;
+    /* Reduced from 62px */
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    /* Slightly reduced */
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    padding: 0 10px;
+}
+
+.loan-table td {
+    height: 45px;
+    /* Reduced from 57px */
+    background-color: #fff;
+    color: #000;
+    font-size: 1.1rem;
+    /* Slightly reduced */
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+    font-weight: 500;
+    padding: 0 10px;
+}
+
+.loan-table tr:last-child td {
+    border-bottom: none;
+}
+
+.loan-note {
+    width: 100%;
+    max-width: 1199px;
+    font-size: 1rem;
+    color: #777;
+    margin-top: 30px;
+    text-align: center;
+    /* Centered per user request */
+    font-style: italic;
+    font-weight: 500;
+}

@@ -1,0 +1,76 @@
+.cta-section {
+    padding: 80px 20px;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+}
+
+.cta-container {
+    background-color: rgba(8, 39, 50, 1);
+    /* QC Color Update */
+    color: #fff;
+    text-align: center;
+    border-radius: 250px;
+    width: 1286px;
+    /* QC Fixed Width */
+    height: 423px;
+    /* QC Fixed Height */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Center content vertically in fixed height */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    /* Center container */
+}
+
+.cta-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 44px;
+    /* QC Gap Title-Subtitle */
+    text-transform: uppercase;
+    max-width: 900px;
+    line-height: 1.2;
+}
+
+.cta-description {
+    font-size: 1.15rem;
+    margin-bottom: 53px;
+    /* QC Gap Subtitle-Button */
+    opacity: 0.95;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    width: 368px !important;
+    /* QC Button Width */
+    height: 60px;
+    /* Estimated comfortable height */
+    font-size: 1.2rem !important;
+    border-radius: 50px !important;
+    text-transform: uppercase;
+    font-weight: 700 !important;
+}
+
+@media (max-width: 1024px) {
+    .cta-container {
+        border-radius: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-container {
+        border-radius: 40px;
+        padding: 60px 20px;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+}
