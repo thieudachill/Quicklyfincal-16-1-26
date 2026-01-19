@@ -71,7 +71,14 @@ img {
 
 /* Utility to center max-width content */
 .container {
+  width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 20px;
+}
+
+@media (max-width: 1400px) {
+  .container {
+    max-width: 100%;
+  }
 }

@@ -96,17 +96,69 @@
     width: 100%;
 }
 
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    /* Behind the header/toggle button but above everything else */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding-top: 80px;
+    /* Space for header */
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.mobile-nav-link {
+    font-size: 24px;
+    font-weight: 600;
+    color: #072631;
+    text-decoration: none;
+}
+
+/* Mobile Menu Button - Hidden by default */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    padding: 0;
+    z-index: 1001;
+    /* Above overlay */
+}
+
 @media (max-width: 1400px) {
     .header {
         width: 95%;
         height: auto;
-        min-height: 83px;
+        min-height: 70px;
+        /* Reduced specific fixed height requirement to allow flex */
         padding: 10px 20px;
         border-radius: 50px;
+        top: 10px;
     }
 
     .header-content {
-        gap: 40px;
+        gap: 0;
+        /* Let justify-between handle it */
         justify-content: space-between;
     }
 }
@@ -114,5 +166,9 @@
 @media (max-width: 900px) {
     .nav-links {
         display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
     }
 }

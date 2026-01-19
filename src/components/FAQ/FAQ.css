@@ -82,3 +82,24 @@
     color: #555;
     line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .faq-title {
+        font-size: 2.2rem;
+    }
+
+    .faq-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
+
+    .accordion-header {
+        font-size: 1rem;
+        padding: 20px;
+    }
+}

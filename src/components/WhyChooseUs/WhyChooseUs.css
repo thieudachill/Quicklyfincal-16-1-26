@@ -151,10 +151,20 @@
     line-height: 1.5;
 }
 
+@media (max-width: 1200px) {
+    .features-grid {
+        width: 100%;
+        flex-wrap: wrap;
+        /* Allow wrapping on smaller desktops/tablets */
+        gap: 20px;
+    }
+}
+
 @media (max-width: 950px) {
     .why-choose-us-section {
         height: auto;
-        padding: 80px 0;
+        padding: 60px 0;
+        /* Adjusted padding */
     }
 
     .features-grid {
@@ -162,10 +172,23 @@
         flex-direction: column;
         align-items: center;
         gap: 30px;
+        margin-top: 30px;
     }
 
     .feature-card {
-        max-width: 350px;
+        max-width: 100%;
+        /* Fluid width */
         width: 100%;
+    }
+
+    .why-choose-us-section .section-title {
+        font-size: 36px;
+        /* Responsive font size */
+        padding: 0 10px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
     }
 }
