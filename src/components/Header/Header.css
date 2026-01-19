@@ -62,6 +62,8 @@
     gap: 74px;
     /* 92 * 0.8 (approx) */
     align-items: center;
+    /* Redundant but ensures safety if header-top-bar changes */
+    margin-left: auto;
 }
 
 .nav-link {
@@ -103,46 +105,141 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    /* Behind the header/toggle button but above everything else */
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark backdrop */
+    backdrop-filter: blur(4px);
+    z-index: 1100;
+
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: flex-start;
+    padding-top: 10px;
+    /* Match header top offset */
+
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    padding-top: 80px;
-    /* Space for header */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
 }
 
 .mobile-nav-overlay.active {
     opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
 }
 
-.mobile-nav-links {
+/* Mobile Dropdown Styling (Internal Expansion) */
+
+.header-top-bar {
+    width: 100%;
+    flex: 1;
+    /* Ensure it fills space */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Force Nav Links to the right */
+.nav-links {
+    margin-left: auto;
+}
+
+.mobile-menu-dropdown {
+    display: none;
+    /* Critical: Hide on desktop so it doesn't take up flex space */
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        margin-top 0.4s ease;
+}
+
+.mobile-menu-dropdown.open {
+    max-height: 500px;
+    /* Explicit max-height for CSS transition */
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.mobile-dropdown-links {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    width: 100%;
 }
 
-.mobile-nav-link {
-    font-size: 24px;
-    font-weight: 600;
+.mobile-dropdown-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
     color: #072631;
     text-decoration: none;
+    padding: 18px 0;
+    width: 100%;
+    text-align: left;
+    transition: color 0.2s;
 }
 
-/* Mobile Menu Button - Hidden by default */
+.mobile-dropdown-link:hover {
+    color: var(--color-primary-red);
+}
+
+.mobile-link-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #E5E5E5;
+    opacity: 0.5;
+}
+
+/* Backdrop for click-outside */
+.mobile-menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    /* Removed grey overlay per user request */
+    z-index: -1;
+    /* Behind header content */
+    /* backdrop-filter: blur(2px); Removed blur */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cleanup old overlays */
+.mobile-nav-overlay,
+.mobile-menu-card,
+.mobile-menu-header,
+.mobile-card-links,
+.mobile-card-link {
+    display: none !important;
+}
+
+/* Opener Button */
 .mobile-menu-btn {
     display: none;
     background: transparent;
+    border: none;
     padding: 0;
     z-index: 1001;
-    /* Above overlay */
+    cursor: pointer;
+}
+
+.mobile-menu-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 @media (max-width: 1400px) {
@@ -153,13 +250,32 @@
         /* Reduced specific fixed height requirement to allow flex */
         padding: 10px 20px;
         border-radius: 50px;
+        /* Default Pill */
         top: 10px;
+        flex-direction: column;
+        /* Allow expansion */
+        align-items: flex-start;
+        /* Stack top-bar and menu */
+        transition: border-radius 0.3s ease;
+        /* Smooth shape change if any */
+    }
+
+    .header.mobile-expanded {
+        border-radius: 50px;
+        /* Maintain pill radius when open */
     }
 
     .header-content {
         gap: 0;
-        /* Let justify-between handle it */
-        justify-content: space-between;
+        justify-content: flex-start;
+        /* Reset align */
+        flex-direction: column;
+        /* Stack top bar and menu */
+    }
+
+    /* Restore display for mobile menu layout */
+    .mobile-menu-dropdown {
+        display: block;
     }
 }
 

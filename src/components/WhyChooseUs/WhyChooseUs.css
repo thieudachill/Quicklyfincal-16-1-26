@@ -47,6 +47,8 @@
 .why-choose-us-container {
     width: 100%;
     max-width: 1200px;
+    margin: 0 auto;
+    /* Ensure centering on large screens */
     padding: 0 20px;
     display: flex;
     flex-direction: column;
@@ -89,7 +91,7 @@
     /* Gap between feature cards per Figma */
     width: 1144px;
     /* QC Fixed width */
-    margin-top: 50px;
+    margin: 50px auto 0;
     /* Adjust spacing from subtitle to cards to fit design visually, or specific if known. Using generic 'top margin' for now to separate from subtitle. */
 }
 

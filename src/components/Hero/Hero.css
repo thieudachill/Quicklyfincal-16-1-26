@@ -167,8 +167,27 @@
     width: auto;
 }
 
-@media (max-width: 1150px) {
+/* Intermediate Desktop: Scale down slightly to fit side-by-side before breaking to mobile */
+@media (max-width: 1250px) {
     .hero-container {
+        /* Keep side-by-side but ensure it fits by scaling */
+        transform: scale(0.9);
+        transform-origin: center top;
+        margin-bottom: -50px;
+        /* Compensate for scale causing whitespace */
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Mobile Stack: Only break to column when it physically can't fit side-by-side */
+/* Lowered from 1150px to 950px per visual testing */
+@media (max-width: 950px) {
+    .hero-container {
+        transform: none;
+        /* Reset scale */
+        margin-bottom: 0;
+
         flex-direction: column;
         gap: 30px;
         /* Increased gap for better separation */
